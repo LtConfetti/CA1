@@ -1,14 +1,6 @@
 import java.util.*;
 
 public class activity implements Comparable<activity>{
-
-    @Override
-    public int compareTo(activity o) {
-        if (this == null && o == null) return 0;
-        if (o == null) return 1;
-        return this.date.compareTo(o.getDate());
-    }
-
     private String type;
     private double duration;
     private Date date;
@@ -104,6 +96,13 @@ public class activity implements Comparable<activity>{
                 ", avgHeartRate=" + avgHeartRate +
                 ", caloriesBurned=" + caloriesBurned +
                 '}';
+    }
+
+    @Override
+    public int compareTo(activity o) {
+        if (this == null && o == null) return 0;
+        if (o == null) return 1;
+        return this.date.compareTo(o.getDate());
     }
 
 }

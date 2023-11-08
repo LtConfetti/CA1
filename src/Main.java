@@ -13,8 +13,7 @@ public class Main {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         try (Scanner sc = new Scanner(new File(fileName))) {
-            if (sc.hasNextLine())
-                sc.nextLine();   // read the header line containing column titles, but don't use it
+            if (sc.hasNextLine()) sc.nextLine();   // read the header line containing column titles, but don't use it
 
             // read one line at a time into a String, and parse the String into tokens (parts)
 
@@ -48,18 +47,11 @@ public class Main {
             System.out.println("FileNotFoundException caught. The file " + fileName + " may not exist." + exception);
         }
 
-
-        System.out.println("========================");
-
-        Collections.reverse(activities);//used for reverse version lists
-
-        printActivty(activities);
-
-        System.out.println("========================");
-
         while (true) {
+            System.out.println("========================");
             System.out.println("SELECT WHAT YOU WISH TO VIEW");
-            System.out.println("1: Calories Burned \n2: Date of Activity\n3:Duration of Activity\n4: Type of Activity\n5: Distance (Km)\n 6: Average Distance Per Activity \n 7:Calories Burned\n 6: End Programme");
+            System.out.println("1: Calories Burned \n2: Date of Activity\n3:Duration of Activity\n4: Type of Activity\n5: Distance (Km)\n6: Average Distance Per Activity \n7:Calories Burned\n8: End Programme");
+            System.out.println("========================");
             int menuInput = keyboard.nextInt();
             int menuSelector;
             switch (menuInput) {
@@ -68,9 +60,8 @@ public class Main {
                 case 1:
 
                     Collections.sort(activities, (a1, a2) -> {
-                                return (int) (a1.getCaloriesBurned() - a2.getCaloriesBurned());
-                            }
-                    );
+                        return (int) (a1.getCaloriesBurned() - a2.getCaloriesBurned());
+                    });
 
                     System.out.println("DO YOU WANT ASCENDING OR DESCENDING?");
                     System.out.println("1: ASCENDING\n2: DESCENDING");
@@ -208,9 +199,8 @@ public class Main {
                 case 3:
 
                     Collections.sort(activities, (a1, a2) -> {
-                                return (int) (a1.getDuration() - a2.getDuration());
-                            }
-                    );
+                        return (int) (a1.getDuration() - a2.getDuration());
+                    });
                     System.out.println("DO YOU WANT ASCENDING OR DESCENDING?");
                     System.out.println("1: ASCENDING\n2: DESCENDING");
                     menuSelector = keyboard.nextInt();
@@ -279,9 +269,8 @@ public class Main {
                 case 4:
 
                     Collections.sort(activities, (a1, a2) -> {
-                                return a1.getType().compareTo(a2.getType());
-                            }
-                    );
+                        return a1.getType().compareTo(a2.getType());
+                    });
                     System.out.println("DO YOU WANT ASCENDING OR DESCENDING?");
                     System.out.println("1: ASCENDING\n2: DESCENDING");
                     menuSelector = keyboard.nextInt();
@@ -349,9 +338,8 @@ public class Main {
                 case 5:
 
                     Collections.sort(activities, (a1, a2) -> {
-                                return (int) (a1.getDistance() - a2.getDistance());
-                            }
-                    );
+                        return (int) (a1.getDistance() - a2.getDistance());
+                    });
                     System.out.println("DO YOU WANT ASCENDING OR DESCENDING?");
                     System.out.println("1: ASCENDING\n2: DESCENDING");
                     menuSelector = keyboard.nextInt();
